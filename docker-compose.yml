@@ -8,7 +8,7 @@ services:
       - ./app:/app
       - ./log:/log
     ports:
-      - '${SERVER_EXTERNAL_PORT}:80'
+      - '127.0.0.1:${SERVER_EXTERNAL_PORT}:80'
 
   php:
     environment:
@@ -28,8 +28,9 @@ services:
       - .env
     volumes:
       - ./db:/var/lib/mysql
+      - ./docker/initdb:/docker-entrypoint-initdb.d
     ports:
-      - '${DATABASE_EXTERNAL_PORT}:3306'
+      - '127.0.0.1:${DATABASE_EXTERNAL_PORT}:3306'
 
   pma:
     image: phpmyadmin
@@ -37,4 +38,4 @@ services:
       PMA_USER: ${MYSQL_USER}
       PMA_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - '${PMA_EXTERNAL_PORT}:80'
+      - '127.0.0.1:${PMA_EXTERNAL_PORT}:80'
