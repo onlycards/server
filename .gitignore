@@ -2,5 +2,8 @@
 .idea
 .DS_Store
 
+dist
+node_modules
+
 /db
 /log
