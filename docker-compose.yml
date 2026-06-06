@@ -7,7 +7,6 @@ services:
       - .env
     volumes:
       - ./db:/var/lib/mysql
-      - ./initdb:/docker-entrypoint-initdb.d
     ports:
       - '127.0.0.1:${DATABASE_EXTERNAL_PORT}:3306'
 
