@@ -1,6 +1,6 @@
-import { Hono } from 'hono'
+import { createRouter } from '@/shared'
 
-export const adminRoutes = new Hono()
+export const adminRoutes = createRouter()
 
 // Все данные панели администратора одним запросом.
 adminRoutes.get('/data', c => c.json(null))

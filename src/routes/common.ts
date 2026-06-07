@@ -1,6 +1,6 @@
-import { Hono } from 'hono'
+import { createRouter } from '@/shared'
 
-export const commonRoutes = new Hono()
+export const commonRoutes = createRouter()
 
 // Удаляем HttpOnly Cookie с токеном авторизации.
 commonRoutes.post('/exit', c => c.body(null, 401))

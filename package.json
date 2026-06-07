@@ -10,7 +10,8 @@
   "dependencies": {
     "@hono/node-server": "^2.0.4",
     "dotenv": "^17.4.2",
-    "hono": "^4.12.23"
+    "hono": "^4.12.23",
+    "mysql2": "^3.22.5"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

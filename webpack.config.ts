@@ -12,11 +12,14 @@ export default {
   mode: 'production',
   externals: [nodeExternals()],
   entry: resolve('src/main.ts'),
-  resolve: { extensions: ['.ts'] },
   output: {
     filename,
     clean: true,
     path: resolve('dist'),
+  },
+  resolve: {
+    extensions: ['.ts'],
+    alias: { '@': resolve('src') },
   },
   module: {
     rules: [
@@ -24,6 +27,10 @@ export default {
         test: /\.ts$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.sql$/,
+        type: 'asset/source',
       },
     ],
   },

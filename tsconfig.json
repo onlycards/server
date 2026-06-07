@@ -3,6 +3,7 @@
     "strict": true,
     "module": "esnext",
     "skipLibCheck": true,
-    "moduleResolution": "bundler"
+    "moduleResolution": "bundler",
+    "paths": { "@/*": ["./src/*"] }
   }
 }
