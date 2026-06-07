@@ -1,6 +1,5 @@
-import { QueryData } from '@/shared'
+import { User, QueryData } from '@/shared'
 
-import { User } from '../types'
 import getUserByNameSql from './query.sql'
 
 export const getUserByName = async (queryData: QueryData, name: string) => {

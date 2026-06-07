@@ -1,1 +1,10 @@
-export { getUserByName } from './users'
+export { getUserById, getUserByName, changePasswordById } from './users'
+
+export {
+  Session,
+  createSession,
+  getSessionByToken,
+  deleteSessionById,
+  prolongSessionById,
+  deleteOtherSessions,
+} from './sessions'
