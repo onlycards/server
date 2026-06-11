@@ -1,0 +1,1 @@
+export { deleteInvitationById } from './delete'
