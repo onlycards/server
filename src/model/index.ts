@@ -1,3 +1,5 @@
+export { deleteInvitationById } from './invitations'
+export { deleteMembershipById } from './memberships'
 export { getUserById, getUserByName, changePasswordById } from './users'
 
 export {
