@@ -1,4 +1,5 @@
-import { adminRoutes, clientRoutes, commonRoutes } from '@/routes'
+import { adminMiddleware, enterMiddleware, commonMiddleware } from '@/auth'
+import { adminRoutes, enterRoutes, clientRoutes, commonRoutes } from '@/routes'
 import {
   connectDb,
   createRouter,
@@ -8,19 +9,21 @@ import {
 
 export const createApp = () => {
   const db = connectDb()
-  const app = createRouter()
 
-  app.use('*', (c, next) => {
-    c.set('queryData', createQueryData(db))
-    c.set('queryAction', createQueryAction(db))
+  return createRouter()
+    .use('*', (c, next) => {
+      c.set('queryData', createQueryData(db))
+      c.set('queryAction', createQueryAction(db))
 
-    return next()
-  })
-
-  app.route('/admin', adminRoutes)
-  app.route('/common', commonRoutes)
-  app.route('/client', clientRoutes)
-  app.notFound(c => c.body(null, 404))
-
-  return app
+      return next()
+    })
+    .use('/enter/*', enterMiddleware)
+    .use('/admin/*', adminMiddleware)
+    .use('/client/*', commonMiddleware)
+    .use('/common/*', commonMiddleware)
+    .route('/enter', enterRoutes)
+    .route('/admin', adminRoutes)
+    .route('/common', commonRoutes)
+    .route('/client', clientRoutes)
+    .notFound(c => c.body(null, 404))
 }

@@ -24,6 +24,7 @@ export default defineConfig(
   {
     // common
     rules: {
+      'require-await': 2,
       'no-return-await': 2,
       'prefer-template': 2,
       'object-shorthand': 2,

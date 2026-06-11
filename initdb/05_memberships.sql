@@ -5,10 +5,10 @@ USE app;
   Выход пользователя из группы или отвязка преподавателем означает
   удаление строки.
 
-  uq_memberships_pair запрещает дубль связи group/user
+  `uq_memberships_pair` запрещает дубль связи group/user
   и защищает от гонок запросов.
 
-  fk_memberships_group и fk_memberships_user
+  `fk_memberships_group` и `fk_memberships_user`
   запрещают связи с несуществующими группами и пользователями.
   При удалении группы или пользователя связь удаляется каскадно.
 */
